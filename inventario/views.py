@@ -13,13 +13,16 @@ from inventario.models import Productos
 def busqueda_producto(request):
     return render(request, "search_products.html")  
 
+
 def obtener_producto(request):
     producto = request.GET["prd"]
     return HttpResponse("El articulo buscado: %r" %producto)
 
+
 def mostrar_productos(request):
     productos = Productos.objects.all()
     return render(request, "show_products.html", {'productos': productos})
+
 
 def agregar_producto(request):
     if request.method == "POST":
@@ -34,6 +37,7 @@ def agregar_producto(request):
     else:
         return render(request, "add_products.html") 
 
+
 def editar_producto(request, param):
 
     productos = Productos.objects.get(id=param)
@@ -47,4 +51,15 @@ def editar_producto(request, param):
         productos.save()  
         return redirect("/mostrar_productos/")  
     else:
-        return render(request, "edit_product.html",{'productos': productos})          
+        return render(request, "edit_product.html",{'productos': productos}) 
+
+
+def eliminar_producto(request, param):
+
+    productos = Productos.objects.get(id=param)
+
+    if request.method == "POST":        
+        productos.delete()  
+        return redirect("/mostrar_productos/")  
+    else:
+        return render(request, "delete_product.html",{'productos': productos})          

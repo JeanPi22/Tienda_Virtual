@@ -5,24 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Employee</title>
+    <title>Search</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
 </head>
-<style>
-    table {
-        border: 8px outset;
-        border-radius: 10px;
-        border-spacing: 10px;
-        padding: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    th,
-    td {
-        padding: 5px;
-        border: 1px solid;
-    }
-</style>
 
 <body>
     <h2 style="text-align:center"> Informacion producto </h2>
@@ -64,7 +50,9 @@
         ¿Quieres ingresar un nuevo producto al inventario?
     </div>
 
-    
+    <p>
+        <a href="{% url 'add-prods' %}"><--Ir a agregar producto</a>
+    </p>
 
 </body>
 
