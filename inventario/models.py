@@ -8,3 +8,6 @@ class Productos(models.Model):
     cost = models.IntegerField(default=0)
     cantidad_stock = models.IntegerField(default=0)
     description = models.TextField()
+
+    def __str__(self):
+        return self.name
