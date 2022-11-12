@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from inventario import views #busqueda_producto, editar_producto, obtener_producto, mostrar_productos, agregar_producto, eliminar_producto
+from contacto.views import mensaje_contacto
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('busqueda_producto/', views.busqueda_producto),
@@ -24,4 +26,5 @@ urlpatterns = [
     path('agregar_producto/', views.agregar_producto, name = "add-prods"),
     path("editar_producto/<int:param>", views.editar_producto),
     path("eliminar_producto/<int:param>", views.eliminar_producto),
+    path('contacto/', mensaje_contacto),
 ]  
